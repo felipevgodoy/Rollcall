@@ -1,0 +1,18 @@
+<h1>Meeting #<%= @meeting.id %></h1>
+
+<p>
+  <b>Held on:</b>
+  <%= @meeting.held_on %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @course.title %>
+</p>
+
+<p>
+  <b>Attendance:</b>
+  	<% @attendance.each do |attendance| %> 
+     <p>  <%= Student.find_by(:id => attendance.student_id).last_name %>,  <%= Student.find_by(:id => attendance.student_id).first_name %></p>
+  	<% end %>
+</p>

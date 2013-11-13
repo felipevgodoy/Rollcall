@@ -1,0 +1,28 @@
+<h1>Editing Attendance #<%= @attendance.id %></h1>
+
+
+<%= form_tag(attendance_url(@attendance), method: 'patch') do %>
+
+<div>
+    <%= label_tag :meeting_id %><br />
+    <select name=<%= :meeting_id %>>
+      <%= @meeting.each do |meeting| %> 
+        <option value=<%= meeting.id %>><%= meeting.id %> </option> 
+      <% end %>
+    </select>
+  </div>
+
+  <div>
+    <%= label_tag :student_id %><br />
+    <select name=<%= :student_id %>>
+      <%= @student.each do |student| %> 
+        <option value=<%= student.id %>><%= student.last_name %> </option> 
+      <% end %>
+    </select>
+  </div>
+  
+  <div>
+    <%= submit_tag "Update Attendance" %>
+  </div>
+
+<% end %>
